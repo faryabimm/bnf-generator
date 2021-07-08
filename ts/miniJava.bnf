@@ -1,0 +1,36 @@
+<Goal>               ::= <Source>
+<Source>             ::= <ClassDeclarations> <MainClass>
+<MainClass>          ::= "class" <Separator> <Identifier> "{ public static void main() {" <VarDeclarations> <Statements> "} }"
+<ClassDeclarations>  ::= E | <ClassDeclaration> <ClassDeclarations>
+<ClassDeclaration>   ::= "class" <Separator> <Identifier> <Separator> <Extension> "{" <FieldDeclarations> <MethodDeclarations> "}"
+<Extension>          ::= E | "extends" <Separator> <Identifier>
+<FieldDeclarations>  ::= E | <FieldDeclaration> <FieldDeclarations>
+<FieldDeclaration>   ::= "static" <Separator> <Type> <Separator> <Identifier> ";"
+<VarDeclarations>    ::= E | <VarDeclaration> <VarDeclarations>
+<VarDeclaration>     ::= <Type> <Separator> <Identifier> ";"
+<MethodDeclarations> ::= E | <MethodDeclaration> <MethodDeclarations>
+<MethodDeclaration>  ::= "public static" <Separator> <Type> <Separator> <Identifier> "(" <Parameters> ") {" <VarDeclarations> <Statements> "return" <Separator> <GenExpression> "; }"
+<Parameters>         ::= E | <Type> <Separator> <Identifier> <Separator> <Parameter>
+<Parameter>          ::= E | "," <Type> <Separator> <Identifier> <Separator> <Parameter>
+<Type>               ::= "boolean" | "int"
+<Statements>         ::= E | <Statement> <Statements>
+<Statement>          ::= "{" <Statements> "}" | "if (" <GenExpression> ")" <Statement> <Separator> "else" <Separator> <Statement> | "while (" <GenExpression> ")" <Statement> | "System.out.println (" <GenExpression> ") ;" | <Identifier> "=" <GenExpression> ";"
+<GenExpression>      ::= <Expression> | <RelExpression>
+<Expression>         ::= <Expression> "+" <Term> | <Expression> "-" <Term> | <Term>
+<Term>               ::= <Term> "*" <Factor> | <Factor>
+<Factor>             ::= "(" <Expression> ")" | <Identifier> | <Identifier> "." <Identifier> | <Identifier> "." <Identifier> "(" <Arguments> ")" | "true" | "false" | <Integer>
+<RelExpression>      ::= <RelExpression> "&&" <RelTerm> | <RelTerm>
+<RelTerm>            ::= <Expression> "==" <Expression> | <Expression> "<" <Expression>
+<Arguments>          ::= E | <GenExpression> <Argument>
+<Argument>           ::= E | "," <GenExpression> <Argument>
+<Identifier>         ::= <Alpha> <Alphanums>
+<Integer>            ::= <PossibleNegSign> <PosDigit> <Digits>
+<PossibleNegSign>    ::= E | "-"
+<ZeroDigit>          ::= "0"
+<PosDigit>           ::= "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9"
+<Digit>              ::= <ZeroDigit> | <PosDigit>
+<Digits>			 ::= E | <Digit> <Digits>
+<Alpha>              ::= "a" | "b" | "c" | "d" | "e" | "f" | "g" | "h" | "i" | "j" | "k" | "l" | "m" | "n" | "o" | "p" | "q" | "r" | "s" | "t" | "u" | "v" | "w" | "x" | "y" | "z" | "A" | "B" | "C" | "D" | "E" | "F" | "G" | "H" | "I" | "J" | "K" | "L" | "M" | "N" | "O" | "P" | "Q" | "R" | "S" | "T" | "U" | "V" | "W" | "X" | "Y" | "Z"
+<Alphanum>           ::= <Alpha> | <Digit>
+<Alphanums>          ::= E | <Alphanum> <Alphanums>
+<Separator>          ::= " "
