@@ -49,7 +49,7 @@
 <script>
 import examples from "~/ts/examples.ts";
 import { Vue, Component, Prop } from "vue-property-decorator";
-import Icon from "~/components/icon.vue";
+import Icon from "~/components/Logo.vue";
 @Component({ components: { Icon } })
 export default class DefaultClass extends Vue {
   items = examples;
