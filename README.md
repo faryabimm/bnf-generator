@@ -1,20 +1,14 @@
-# bnf-playground2
-This project is being hosted here: http://bnfplayground.pauliankline.com
+# bnf-generator
+This project is a fork of bnf-playground project available at: http://bnfplayground.pauliankline.com
 ## Build Setup
 
 ```bash
 # install dependencies
 $ npm install
 
-# serve with hot reload at localhost:3000
+# serve bnf playground project with hot reload at localhost:3000
 $ npm run dev
 
-# build for production and launch server
-$ npm run build
-$ npm run start
-
-# generate static project
-$ npm run generate
+# run test sample generator once with miniJava grammar
+$ npm run gen-test
 ```
-
-For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
